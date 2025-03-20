@@ -10,6 +10,7 @@ export const CreatePassword = () => {
   const [hasLowercase, setHasLowercase] = useState(false);
   const [hasNumber, setHasNumber] = useState(false);
   const [hasSpecial, setHasSpecial] = useState(false);
+  const [submitClicks, setSubmitClicks] = useState(0);
   const isValid =
     isLengthValid && hasUppercase && hasLowercase && hasNumber && hasSpecial;
 
@@ -20,6 +21,7 @@ export const CreatePassword = () => {
     setHasLowercase(/[a-z]/.test(password));
     setHasNumber(/[0-9]/.test(password));
     setHasSpecial(/[!@#$%^&*()_+={[}\]|:;"'<,>.-]/.test(password));
+    setSubmitClicks((prev) => prev + 1);
   };
 
   useEffect(() => {
@@ -41,14 +43,29 @@ export const CreatePassword = () => {
       ) : (
         <>
           <h1>Create a password</h1>
+          {submitClicks > 0 && !isValid && (
+            <p className="error">
+              <b>Invalid password.</b>
+            </p>
+          )}
           <div>
             Password must meet the following requirements:
             <ul>
-              <li>Minimum length of 6 characters</li>
-              <li>At least 1 uppercase character</li>
-              <li>At least 1 lowercase character</li>
-              <li>At least 1 number</li>
-              <li>{`At least 1 special character (!@#$%^&*()_-+={[}]|:;"'<,>.)`}</li>
+              <li className={submitClicks > 0 && !isLengthValid ? "error" : ""}>
+                Minimum length of 6 characters
+              </li>
+              <li className={submitClicks > 0 && !hasUppercase ? "error" : ""}>
+                At least 1 uppercase character
+              </li>
+              <li className={submitClicks > 0 && !hasLowercase ? "error" : ""}>
+                At least 1 lowercase character
+              </li>
+              <li className={submitClicks > 0 && !hasNumber ? "error" : ""}>
+                At least 1 number
+              </li>
+              <li
+                className={submitClicks > 0 && !hasSpecial ? "error" : ""}
+              >{`At least 1 special character (!@#$%^&*()_-+={[}]|:;"'<,>.)`}</li>
             </ul>
           </div>
           <form>

@@ -5,7 +5,8 @@ import { CreatePassword } from "./components/create-password";
 // xx page structure - main component (with description); password inputs
 // xx check both inputs matching
 // xx validate on submit
-// show invalid reqs
+// xx show invalid reqs
+// show password
 // some styling
 // accessibility
 // tests
