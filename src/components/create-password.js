@@ -37,7 +37,7 @@ export const CreatePassword = () => {
   }, [password, confirmPassword]);
 
   return (
-    <div>
+    <div className="container">
       {isValid ? (
         <h1>Successfully created password!</h1>
       ) : (
@@ -82,7 +82,9 @@ export const CreatePassword = () => {
               onChange={(e) => setConfirmPassword(e.target.value)}
             />
           </form>
-          {!isMatching && <p>The passwords do not match.</p>}
+          {!isMatching && (
+            <p className="error line-error">The passwords do not match.</p>
+          )}
           <button
             disabled={!isMatching || !confirmPassword}
             onClick={validatePassword}
