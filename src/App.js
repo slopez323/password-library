@@ -8,7 +8,7 @@ import { CreatePassword } from "./components/create-password";
 // xx show invalid reqs
 // xx show password
 // xx some basic styling
-// accessibility
+// xx accessibility
 // tests
 
 function App() {
