@@ -1,9 +1,22 @@
 import { PasswordInput } from "./password-input";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export const CreatePassword = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [isMatching, setIsMatching] = useState(true);
+
+  useEffect(() => {
+    if (confirmPassword) {
+      if (password === confirmPassword) {
+        setIsMatching(true);
+      } else {
+        setIsMatching(false);
+      }
+    } else {
+      setIsMatching(true);
+    }
+  }, [password, confirmPassword]);
 
   return (
     <div>
@@ -32,7 +45,8 @@ export const CreatePassword = () => {
           onChange={(e) => setConfirmPassword(e.target.value)}
         />
       </form>
-      <button>Submit</button>
+      {!isMatching && <p>The passwords do not match.</p>}
+      <button disabled={!isMatching || !confirmPassword}>Submit</button>
     </div>
   );
 };
