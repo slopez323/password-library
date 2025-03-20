@@ -6,7 +6,7 @@ import { CreatePassword } from "./components/create-password";
 // xx check both inputs matching
 // xx validate on submit
 // xx show invalid reqs
-// show password
+// xx show password
 // some styling
 // accessibility
 // tests

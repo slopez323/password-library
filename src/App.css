@@ -1,3 +1,20 @@
 .error {
   color: red;
 }
+
+.input-container {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.image-btn {
+  height: 50%;
+  display: flex;
+  align-items: center;
+}
+
+img {
+  height: 100%
+}
