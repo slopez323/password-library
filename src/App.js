@@ -1,25 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { CreatePassword } from "./components/create-password";
+
+// clean up files and create relevant components
+// page structure - main component (with description); password inputs
+// check both inputs matching
+// validate on submit
+// some styling
+// accessibility
+// tests
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  return <CreatePassword />;
 }
 
 export default App;
